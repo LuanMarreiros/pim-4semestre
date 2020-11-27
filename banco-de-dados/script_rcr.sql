@@ -1,6 +1,5 @@
-DROP DATABASE RCR:
-CREATE DATABASE RCR;
-USE [RCR];
+CREATE DATABASE RCDB;
+USE [RCDB];
 
 CREATE TABLE Tipo_cripto (
 	tp_cripto INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
@@ -36,6 +35,9 @@ CREATE TABLE Endereco (
 	fk_usuario INT FOREIGN KEY REFERENCES Usuario(id_usuario),
 );
 
+INSERT INTO Usuario (email, senha, nome, cpf, dt_nascimento, telefone, tipo_usuario)
+VALUES ('admin','admin','admin','12345678910','01-01-2001','45678910','admin');
+
 CREATE TABLE Chamados (
 	id_chamado INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	assunto VARCHAR(255),
@@ -61,4 +63,3 @@ CREATE TABLE Transacao (
 	fk_tipo_cripto INT FOREIGN KEY REFERENCES Tipo_cripto(tp_cripto),
 	fk_tipo_transacao INT FOREIGN KEY REFERENCES Tipo_transacao(tp_transacao),
 );
-
